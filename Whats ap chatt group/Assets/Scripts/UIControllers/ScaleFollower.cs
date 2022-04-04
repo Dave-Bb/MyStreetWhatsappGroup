@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Messages.UIControllers;
+using Messages.UIControllers.SizeReporters;
 using UnityEngine;
 
 public class ScaleFollower : MonoBehaviour
 {
-    [SerializeField] private TextBodySizeReporter textBodySizeReporter;
+    [SerializeField] private SizeReporter textBodySizeReporter;
     [SerializeField] private Vector2 minimumDelta;
     [SerializeField] private float heightSizeBuffer = 120.0f;
     [SerializeField] private float widthSizeBuffer = 120.0f;
@@ -69,13 +70,8 @@ public class ScaleFollower : MonoBehaviour
             newDelta.y = minimumDelta.y;
         }
         
-        Debug.Log($"Update size {newDelta}");
-        
         rectTransform.sizeDelta = new Vector2(newDelta.x , newDelta.y);
         
         Canvas.ForceUpdateCanvases();
-        
-        //gameObject.SendMessageUpwards("OnRefreshLayoutGroup");
-        //ectTransform.rect.Set(thisRect.x, thisRect.y, thisRect.width, height + sizeBuffer);
     }
 }

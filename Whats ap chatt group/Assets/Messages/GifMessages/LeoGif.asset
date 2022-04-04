@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ddeae4fa384a84a707cc8acb5e0026, type: 3}
+  m_Name: LeoGif
+  m_EditorClassIdentifier: 
+  Message: {fileID: 11400000, guid: 9c1ffb7dcaaed244f8be50526136660a, type: 2}
+  Frames:
+  - {fileID: 21300000, guid: 3e7678a761a8ddf408517ee96b089f14, type: 3}
+  - {fileID: 21300000, guid: 3e6f495b7f6e8474581d9dedeed73387, type: 3}
+  - {fileID: 21300000, guid: ef88656c0afd8fa458f1da999ce51a9a, type: 3}
+  - {fileID: 21300000, guid: cc2b704b3e29ded42aa68be2cb18c7d6, type: 3}
+  - {fileID: 21300000, guid: 3f8a6ab8d4ee2da45979455857af9079, type: 3}
+  - {fileID: 21300000, guid: c7323e6c015e4974b913c8a5e7ab83b0, type: 3}
+  - {fileID: 21300000, guid: 0c07129b833c6cc49bb7833da29cd27d, type: 3}
+  - {fileID: 21300000, guid: bb8734c06c08ace4cbc87e5c8499b658, type: 3}
+  - {fileID: 21300000, guid: 26dc4fc31dcaf434a8d145a968a86ce7, type: 3}
+  - {fileID: 21300000, guid: c4222ef78a85cce478829bd602956298, type: 3}
+  - {fileID: 21300000, guid: a41241f720c38ae4ca4768a3a9650c0d, type: 3}
+  - {fileID: 21300000, guid: b25f54bfb29b70e45904a1fd6f5b6a81, type: 3}
+  - {fileID: 21300000, guid: 747881245d2c37c43bc4f16ad4fe85be, type: 3}
+  - {fileID: 21300000, guid: bbc43eeecbf0769458fa1f5d6525238c, type: 3}
+  - {fileID: 21300000, guid: adf7cf8acec129445a148c868cb4fd64, type: 3}
+  - {fileID: 21300000, guid: f1352ea70fd2e5c4b8e00893331e778f, type: 3}
+  - {fileID: 21300000, guid: 5ae4f602438b9174b91fbec2f3457e30, type: 3}
+  - {fileID: 21300000, guid: ad6192ffa17e1a24197c9104df59c528, type: 3}
+  - {fileID: 21300000, guid: 2d1146be9f0aee7468cf5b50886955ee, type: 3}
+  - {fileID: 21300000, guid: 8737b839dd940a046915976f227bf925, type: 3}
+  - {fileID: 21300000, guid: 01c22a0cc82a56e4c8fdd7b5b295f55a, type: 3}
+  - {fileID: 21300000, guid: 31abf8cd3436e194181ef8837d23b660, type: 3}
+  ImageScale: 1.5

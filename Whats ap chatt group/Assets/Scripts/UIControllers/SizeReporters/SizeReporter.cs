@@ -43,7 +43,6 @@ namespace Messages.UIControllers.SizeReporters
 
                 currentDizeDelta = currentValue;
                 SizeChanged?.Invoke(currentDizeDelta);
-                Debug.Log($"Current Value Changed{currentDizeDelta}");
             }
         
         }
