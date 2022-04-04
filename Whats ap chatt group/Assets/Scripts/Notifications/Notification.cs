@@ -1,9 +1,13 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Messages.Extentions;
 using UnityEngine;
 
+namespace Notifications
+{
+    /// <summary>
+/// Manage the notification and its animation down from the top.
+/// The root should be anchored to the top for this to work 
+/// </summary>
 [RequireComponent(typeof(RectTransform))]
 public class Notification : MonoBehaviour
 {
@@ -143,3 +147,6 @@ public class Notification : MonoBehaviour
         tick = 0.0f;
     }
 }
+}
+
+

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using Messages;
 using UnityEngine;
 
-namespace Messages
+namespace ContentControllers
 {
     public class BrutalManualTimedEvents : MonoBehaviour
     {
@@ -15,7 +16,7 @@ namespace Messages
         
         private float stageTime;
 
-        public Action<Message> PushNewMessage;
+        public Action<TextMessage> PushNewMessage;
 
         private void Awake()
         {
@@ -69,8 +70,8 @@ namespace Messages
 
         private void Play(TimmedMessage message)
         {
-            Debug.Log(message.Message.MessageBody);
-            PushNewMessage?.Invoke(message.Message);
+            Debug.Log(message.textMessage.MessageBody);
+            PushNewMessage?.Invoke(message.textMessage);
         }
     }
 }

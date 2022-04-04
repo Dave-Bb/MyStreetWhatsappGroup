@@ -1,13 +1,13 @@
 ﻿using System;
-using TMPro;
 using UnityEngine;
 
-namespace Messages.UIControllers.SizeReporters
+namespace UISizeManagement.SizeReporters
 {
+    /// <summary>
+    /// This can be added to something, and when it size changes it can tell another rect somewhere to also change 
+    /// </summary>
     public class SizeReporter : MonoBehaviour
     {
-       // [SerializeField] private TextMeshProUGUI messageBodyText;
-
         private Vector2 targetSizeDelta;
 
         private Vector2 currentDizeDelta;

@@ -1,4 +1,4 @@
-﻿namespace Messages.UIControllers
+﻿namespace UISizeManagement
 {
     public enum ScaleFollowType
     {

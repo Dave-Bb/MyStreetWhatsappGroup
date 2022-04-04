@@ -3,11 +3,13 @@ using UnityEngine;
 
 namespace Messages
 {
+    /// <summary>
+    /// Gif message type, like an image message only with a list of sprites 
+    /// </summary>
     [CreateAssetMenu(fileName = "Message", menuName = "ScriptableObjects/Messages/Gif Message", order = 1)]
 
-    public class GifMessage : ScriptableObject, IImage
+    public class GifMessage : Message, IImage
     {
-        public Message Message;
         public List<Sprite> Frames;
         public float ImageScale = 1.0f;
 

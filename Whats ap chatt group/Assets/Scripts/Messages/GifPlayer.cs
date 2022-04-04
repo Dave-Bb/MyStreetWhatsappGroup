@@ -4,15 +4,22 @@ using UnityEngine.UI;
 
 namespace Messages
 {
+    /// <summary>
+    /// Play gifs, or rather List of Sprites as frames. 
+    /// </summary>
     public class GifPlayer : MonoBehaviour
     {
-        [SerializeField] private List<Sprite> gifFrames;
+        [SerializeField] 
+        private List<Sprite> gifFrames;
 
-        [SerializeField] private float frameRate = 20;
+        [SerializeField] 
+        private float frameRate = 20;
 
-        [SerializeField] private bool playOnAwake;
+        [SerializeField] 
+        private bool playOnAwake;
 
-        [SerializeField] private Image image;
+        [SerializeField] 
+        private Image image;
 
         private bool isPlaying;
 
@@ -53,8 +60,6 @@ namespace Messages
             }
 
             lastFrameTime += Time.deltaTime;
-
-
         }
     }
 }

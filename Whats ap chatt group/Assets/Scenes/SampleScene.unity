@@ -1083,7 +1083,7 @@ MonoBehaviour:
   nameNumber: {fileID: 0}
   messageBody: {fileID: 0}
   time: {fileID: 0}
-  testMessage: {fileID: 0}
+  message: {fileID: 0}
 --- !u!1 &237663148
 GameObject:
   m_ObjectHideFlags: 0
@@ -2406,10 +2406,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ImageMessageHolder
       objectReference: {fileID: 0}
-    - target: {fileID: 1253549140271829583, guid: b18cc36db136656419e30c526d4fe556, type: 3}
-      propertyPath: heightSizeBuffer
-      value: 50
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b18cc36db136656419e30c526d4fe556, type: 3}
 --- !u!1 &705507993
@@ -2894,7 +2890,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contentRect: {fileID: 841489430}
   itemPrefab: {fileID: 3962253919825063443, guid: 31590d5909e11cf4f9fb9c237f1b614f, type: 3}
-  spacer: {fileID: 840833465682574126, guid: 48b99f978b1d2de4a87e3850e8b68cc4, type: 3}
   spacing: 0
   travelSpace: 0
   layoutGroup: {fileID: 841489431}
@@ -2913,13 +2908,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Messages:
-  - Message: {fileID: 11400000, guid: 1f0755dde8876ff4b8ffc933d1e8cebc, type: 2}
+  - textMessage: {fileID: 11400000, guid: 1f0755dde8876ff4b8ffc933d1e8cebc, type: 2}
     StageTime: 2
-  - Message: {fileID: 11400000, guid: 2b103d68960f1794f8abf22eaf312567, type: 2}
+  - textMessage: {fileID: 11400000, guid: 2b103d68960f1794f8abf22eaf312567, type: 2}
     StageTime: 5
-  - Message: {fileID: 11400000, guid: 845312162fb1a9442893c367d8245ee4, type: 2}
+  - textMessage: {fileID: 11400000, guid: 845312162fb1a9442893c367d8245ee4, type: 2}
     StageTime: 8
-  - Message: {fileID: 11400000, guid: f8c73cf6329e4be48a8a892828f4f8f4, type: 2}
+  - textMessage: {fileID: 11400000, guid: f8c73cf6329e4be48a8a892828f4f8f4, type: 2}
     StageTime: 10
   startDelay: 2
 --- !u!95 &822919364
@@ -3059,7 +3054,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 465}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1278, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &841489431
@@ -3872,7 +3867,7 @@ MonoBehaviour:
   nameNumber: {fileID: 0}
   messageBody: {fileID: 0}
   time: {fileID: 0}
-  testMessage: {fileID: 0}
+  message: {fileID: 0}
 --- !u!1 &1233010182
 GameObject:
   m_ObjectHideFlags: 0
@@ -4285,7 +4280,7 @@ MonoBehaviour:
   nameNumber: {fileID: 0}
   messageBody: {fileID: 0}
   time: {fileID: 0}
-  testMessage: {fileID: 0}
+  message: {fileID: 0}
 --- !u!1001 &1453102222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4642,13 +4637,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 841489430}
     m_Modifications:
+    - target: {fileID: 3962253919825063442, guid: 31590d5909e11cf4f9fb9c237f1b614f, type: 3}
+      propertyPath: message
+      value: 
+      objectReference: {fileID: 11400000, guid: 1f0755dde8876ff4b8ffc933d1e8cebc, type: 2}
+    - target: {fileID: 3962253919825063442, guid: 31590d5909e11cf4f9fb9c237f1b614f, type: 3}
+      propertyPath: testMessage
+      value: 
+      objectReference: {fileID: 11400000, guid: 1f0755dde8876ff4b8ffc933d1e8cebc, type: 2}
+    - target: {fileID: 3962253919825063442, guid: 31590d5909e11cf4f9fb9c237f1b614f, type: 3}
+      propertyPath: testTextMessage
+      value: 
+      objectReference: {fileID: 11400000, guid: 1f0755dde8876ff4b8ffc933d1e8cebc, type: 2}
     - target: {fileID: 3962253919825063443, guid: 31590d5909e11cf4f9fb9c237f1b614f, type: 3}
       propertyPath: m_Name
       value: TextMessage (5)
       objectReference: {fileID: 0}
     - target: {fileID: 3962253919825063443, guid: 31590d5909e11cf4f9fb9c237f1b614f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3962253919825063532, guid: 31590d5909e11cf4f9fb9c237f1b614f, type: 3}
       propertyPath: m_Pivot.x
@@ -4668,7 +4675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3962253919825063532, guid: 31590d5909e11cf4f9fb9c237f1b614f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3962253919825063532, guid: 31590d5909e11cf4f9fb9c237f1b614f, type: 3}
       propertyPath: m_AnchorMin.x
@@ -4676,7 +4683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3962253919825063532, guid: 31590d5909e11cf4f9fb9c237f1b614f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3962253919825063532, guid: 31590d5909e11cf4f9fb9c237f1b614f, type: 3}
       propertyPath: m_SizeDelta.x
@@ -4720,7 +4727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3962253919825063532, guid: 31590d5909e11cf4f9fb9c237f1b614f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1010
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3962253919825063532, guid: 31590d5909e11cf4f9fb9c237f1b614f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6750,10 +6757,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7066958225258393191, guid: 6c6dcb6e44202f24ea571f859cf02c18, type: 3}
-      propertyPath: heightSizeBuffer
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 7066958225258393193, guid: 6c6dcb6e44202f24ea571f859cf02c18, type: 3}
       propertyPath: m_Name
       value: GifMessageHolder
@@ -6810,7 +6813,7 @@ MonoBehaviour:
   nameNumber: {fileID: 0}
   messageBody: {fileID: 0}
   time: {fileID: 0}
-  testMessage: {fileID: 0}
+  message: {fileID: 0}
 --- !u!224 &8376050812735919063 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8626875185870949505, guid: 152fe44d1a3b8894092e556bcd8abdc6, type: 3}

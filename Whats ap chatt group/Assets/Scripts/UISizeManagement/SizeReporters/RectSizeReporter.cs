@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
 
-namespace Messages.UIControllers.SizeReporters
+namespace UISizeManagement.SizeReporters
 {
+    /// <summary>
+    /// Reports when the size of a rect changed.
+    /// Used to manage the size of the items in the list and to scale the messages nice
+    /// </summary>
     [RequireComponent(typeof(RectTransform))]
     public class RectSizeReporter : SizeReporter
     { 
