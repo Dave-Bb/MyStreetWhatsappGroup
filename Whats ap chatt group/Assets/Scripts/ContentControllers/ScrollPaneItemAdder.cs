@@ -7,13 +7,17 @@ namespace ContentControllers
 {
     public class ScrollPaneItemAdder : MonoBehaviour
     {
-        [SerializeField] private GameObject itemPlacHolder;
+        [SerializeField] 
+        private GameObject itemPlacHolder;
 
-        [SerializeField] private RectTransform contentRect;
+        [SerializeField] 
+        private RectTransform contentRect;
 
-        [SerializeField] private VerticalLayoutGroup layoutGroup;
+        [SerializeField] 
+        private VerticalLayoutGroup layoutGroup;
 
-        [SerializeField] private ScrollRect scrollRect;
+        [SerializeField] 
+        private ScrollRect scrollRect;
 
         public float scrollNormalized = 0f;
 
@@ -31,31 +35,16 @@ namespace ContentControllers
             {
                 AddNewItem();
             }
-
-            //scrollRect.verticalNormalizedPosition = 0f;
-
-
-            //scrollRect.normalizedPosition = new Vector2(0, scrollNormalized);
-
-            // scrollRect.verticalScrollbar.value = scrollNormalized;
+            
             if (lerpTime <= 1)
             {
                 lerpTime += Time.deltaTime * timeMultipler;
                 contentRect.offsetMax = new Vector2(0, Mathf.Lerp(lerpOrigon, lerpTarget, lerpTime));
             }
-
-
-
-        }
-
-        public void PrintBool(bool print)
-        {
-            Debug.Log(print);
         }
 
         public void NEWMEssage(TextMessage textMessage)
         {
-            Debug.Log("NEW MESSAGE! " + textMessage.MessageBody);
             var newItem = Instantiate(itemPlacHolder, contentRect);
             var setMessage = newItem.GetComponent<SetMessage>();
             setMessage.SetContent(textMessage);
