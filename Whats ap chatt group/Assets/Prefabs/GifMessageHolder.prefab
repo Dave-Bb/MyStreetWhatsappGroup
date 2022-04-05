@@ -1083,7 +1083,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 4
 --- !u!114 &6119866199936679316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1253,7 +1253,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 4
 --- !u!1 &7066958225258393193
 GameObject:
   m_ObjectHideFlags: 0
@@ -1332,11 +1332,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8281dd25b9c74c9d833a87df22d05f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gifPlayer: {fileID: 6119866199407190678}
-  message: {fileID: 11400000, guid: 85241217c4bd7604fb9c844be61ad086, type: 2}
   nameNumber: {fileID: 1561113367363945500}
   messageBody: {fileID: 1561113367767372647}
   time: {fileID: 1561113368806700612}
+  message: {fileID: 11400000, guid: 85241217c4bd7604fb9c844be61ad086, type: 2}
+  gifPlayer: {fileID: 6119866199407190678}
 --- !u!1 &7390350808853339818
 GameObject:
   m_ObjectHideFlags: 0

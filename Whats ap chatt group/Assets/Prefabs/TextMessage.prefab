@@ -198,7 +198,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 4
 --- !u!1 &3962253919825063443
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +261,7 @@ MonoBehaviour:
   nameNumber: {fileID: 4702903376106013798}
   messageBody: {fileID: 4702903375706723101}
   time: {fileID: 4702903376810702398}
-  testMessage: {fileID: 0}
+  message: {fileID: 0}
 --- !u!114 &3962253919825063453
 MonoBehaviour:
   m_ObjectHideFlags: 0

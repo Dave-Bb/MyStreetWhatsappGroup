@@ -15,6 +15,7 @@ MonoBehaviour:
   contact: {fileID: 11400000, guid: 02f4b9621e08b674b8d2d2994a63fe47, type: 2}
   MessageBody: 
   Time: 
+  messageType: 2
   Frames:
   - {fileID: 21300000, guid: 3e7678a761a8ddf408517ee96b089f14, type: 3}
   - {fileID: 21300000, guid: 3e6f495b7f6e8474581d9dedeed73387, type: 3}

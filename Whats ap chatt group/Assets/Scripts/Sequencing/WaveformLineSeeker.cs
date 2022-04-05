@@ -20,7 +20,7 @@ namespace Sequencing
         private Image seekerImage;
 
         private float trackWaveformSize;
-        private float magicWhy = 540.0f; //I dunno, it just needs this for some reason. 
+        private float magicWhy = 160; //I dunno, it just needs this for some reason. 
         private bool allowMouseSeeking;
 
         private void Awake()

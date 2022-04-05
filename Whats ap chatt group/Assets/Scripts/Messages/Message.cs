@@ -10,5 +10,6 @@ namespace Messages
         public Contact contact;
         public string MessageBody;
         public string Time;
+        public MessageType messageType;
     }
 }
