@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Message1
   m_EditorClassIdentifier: 
   contact: {fileID: 11400000, guid: 02f4b9621e08b674b8d2d2994a63fe47, type: 2}
-  MessageBody: 'Hey dude, you are a really cool guy. '
+  MessageBody: Whats app group chat
   Time: 14:14
+  messageType: 0
+  sequence:
+    StageTime: 1.9457709
+    State: 0

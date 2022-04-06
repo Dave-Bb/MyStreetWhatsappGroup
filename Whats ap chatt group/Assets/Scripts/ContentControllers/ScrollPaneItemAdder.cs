@@ -21,7 +21,7 @@ namespace ContentControllers
 
         public float scrollNormalized = 0f;
 
-        private float lerpTargetOffset = 240;
+        //private float lerpTargetOffset = 240;
         private float lerpTarget;
         private float lerpOrigon;
 

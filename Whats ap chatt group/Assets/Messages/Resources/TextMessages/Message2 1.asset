@@ -10,8 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a0f95acd5204171aefac25052a8b79c, type: 3}
-  m_Name: Message4
+  m_Name: Message2 1
   m_EditorClassIdentifier: 
   contact: {fileID: 11400000, guid: 8a166f55a9c97d042ad1956f1bb93361, type: 2}
-  MessageBody: 'LOL! '
+  MessageBody: Whit my neighbors
   Time: 14:14
+  messageType: 0
+  sequence:
+    StageTime: 3.1948125
+    State: 0

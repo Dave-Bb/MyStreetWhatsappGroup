@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace MessagesUI
 {
-    public class MessagePreview : MonoBehaviour
+    public class MessagePreview : MonoBehaviour, IMessageDisplayer
     {
         [SerializeField] private GameObject textMessagePrefab;
         [SerializeField] private GameObject imageMessagePrefab;
@@ -36,7 +36,7 @@ namespace MessagesUI
             }
         }
 
-        public void SetNewMessage(Message newMessage)
+        private void SetNewMessage(Message newMessage)
         {
             if (activePreviewMessage != null)
             {
@@ -70,12 +70,11 @@ namespace MessagesUI
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            
-            
+        }
 
-            
-
-            
+        public void DisplayMessage(Message message)
+        {
+            SetNewMessage(message);
         }
     }
 }

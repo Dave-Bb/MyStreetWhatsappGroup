@@ -25,6 +25,8 @@ namespace Sequencing
         
         private AudioSource targetAudioSource;
 
+        public float CurrentTime => targetAudioSource.time;
+
         public AudioSource TargetAudioSource => targetAudioSource;
 
         private void Awake()

@@ -17,4 +17,4 @@ MonoBehaviour:
   Time: 
   messageType: 1
   Image: {fileID: 21300000, guid: 8d3f8efb5d6c0e54781ee4ed62ed72dc, type: 3}
-  ImageScale: 0.75
+  ImageScale: 1
