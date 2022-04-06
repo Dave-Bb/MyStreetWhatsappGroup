@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Messages;
 using MessagesUI;
@@ -27,9 +28,23 @@ namespace Sequencing
         private IEnumerable<Message> messages;
 
         private Queue<Message> messageQueue;
+
+        public IEnumerable<Message> Messages => messages;
+        
         private void Awake()
         {
             LoadMessages();
+            ResetAllMessageStates();
+
+            if (trackController != null)
+            {
+                trackController.Stopped += OnStopped;
+            }
+        }
+
+        private void OnStopped()
+        {
+            BuildQueue();
             ResetAllMessageStates();
         }
 
@@ -72,13 +87,24 @@ namespace Sequencing
         {
             messages = Resources.LoadAll(messagePath, typeof(Message)).Cast<Message>();
             messages = messages.OrderBy(x => x.sequence.StageTime);
+            BuildQueue();
+        }
+
+        private void BuildQueue()
+        {
             messageQueue = new Queue<Message>();
             foreach (var message in messages)
             {
                 messageQueue.Enqueue(message);
             }
-            
-            
+        }
+
+        private void OnDestroy()
+        {
+            if (trackController != null)
+            {
+                trackController.Stopped -= OnStopped;
+            }
         }
     }
 }

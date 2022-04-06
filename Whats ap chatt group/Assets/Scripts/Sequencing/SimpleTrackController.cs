@@ -29,6 +29,10 @@ namespace Sequencing
 
         public AudioSource TargetAudioSource => targetAudioSource;
 
+        public Action Stopped;
+        public Action Played;
+        public Action Paused;
+
         private void Awake()
         {
             targetAudioSource = GetComponent<AudioSource>();
@@ -85,16 +89,19 @@ namespace Sequencing
         private void Play()
         {
             targetAudioSource.Play();
+            Played?.Invoke();
         }
 
         private void Stop()
         {
             targetAudioSource.Stop();
+            Stopped?.Invoke();
         }
 
         private void Pause()
         {
             targetAudioSource.Pause();
+            Paused?.Invoke();
         }
 
         private void OnDestroy()

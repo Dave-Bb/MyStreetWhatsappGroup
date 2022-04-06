@@ -92,9 +92,7 @@ namespace Sequencing
 
         private void SendSeekPoint()
         {
-            //Basically just the reverse of the UpdateToAudioSource method 
-            var positionToWaveformSize = rectTransform.anchoredPosition.x / trackWaveformSize;
-            var seekPosition = positionToWaveformSize * audioSource.clip.length;
+            var seekPosition = PointOnWaveformToTime(rectTransform.anchoredPosition.x);
             
             //Trim the edges if we clicked off
             if (seekPosition < 0)
@@ -121,11 +119,27 @@ namespace Sequencing
 
         private void UpdateToAudioSource()
         {
+            var anchorPositionForWaveform = TimeToPoint(audioSource.time);
+            rectTransform.anchoredPosition = new Vector2(anchorPositionForWaveform, rectTransform.anchoredPosition.y);
+        }
+
+        private float TimeToPoint(float currentTime)
+        {
             //current % of the way through the track 
-            var currentTime = audioSource.time / audioSource.clip.length;
+            var p = currentTime / audioSource.clip.length;
             //Get this as a ratio of Seeking track width 
-            var ratio = trackWaveformSize * currentTime;
-            rectTransform.anchoredPosition = new Vector2(ratio, rectTransform.anchoredPosition.y);
+            var ratio = trackWaveformSize * p;
+
+            return ratio;
+        }
+
+        private float PointOnWaveformToTime(float anchorPosition)
+        {
+            //Basically just the reverse of the UpdateToAudioSource method 
+            var positionToWaveformSize = anchorPosition / trackWaveformSize;
+            var seekPosition = positionToWaveformSize * audioSource.clip.length;
+
+            return seekPosition;
         }
 
         private void OnDestroy()
