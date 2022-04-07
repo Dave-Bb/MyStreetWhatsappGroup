@@ -95,6 +95,7 @@ namespace Sequencing
         private void Stop()
         {
             targetAudioSource.Stop();
+            targetAudioSource.time = 0.0f;
             Stopped?.Invoke();
         }
 

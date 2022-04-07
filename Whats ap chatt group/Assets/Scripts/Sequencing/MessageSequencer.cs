@@ -30,6 +30,8 @@ namespace Sequencing
         private Queue<Message> messageQueue;
 
         public IEnumerable<Message> Messages => messages;
+
+        public Action<Message> NewMessageBorn;
         
         private void Awake()
         {
@@ -58,13 +60,12 @@ namespace Sequencing
 
         private void Update()
         {
-            //  throw new NotImplementedException();
             if (!trackController.TargetAudioSource.isPlaying)
             {
                 return;
             }
 
-            if (messageQueue.Count <= 0)
+            if (messageQueue == null || messageQueue.Count <= 0)
             {
                 return;
             }
@@ -72,7 +73,9 @@ namespace Sequencing
             var nextMessage = messageQueue.Peek();
             if (trackController.CurrentTime >= nextMessage.sequence.StageTime)
             {
-                messageDisplayer.DisplayMessage(messageQueue.Dequeue());
+                var newMessage = messageQueue.Dequeue();
+                messageDisplayer.DisplayMessage(newMessage);
+                NewMessageBorn?.Invoke(newMessage);
             }
 
         }

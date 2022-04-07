@@ -1,6 +1,9 @@
+using System;
+using System.Collections.Generic;
 using Messages;
 using Messages.Extentions;
 using MessagesUI;
+using Sequencing;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,11 +14,21 @@ namespace ContentControllers
     /// </summary>
     public class SimpleMessageFeed : MonoBehaviour
     {
+        [Header("Message Prefabs")]
+        [SerializeField] 
+        private GameObject textMessagePrefab;
+       
+        [SerializeField] 
+        private GameObject imageMessagePrefab;
+        
+        [SerializeField] 
+        private GameObject gifMessagePrefab;
+        
+        [SerializeField] 
+        private Message testMessage;
+        
         [SerializeField]
         private RectTransform contentRect;
-
-        [SerializeField] 
-        private GameObject itemPrefab;
 
         [SerializeField] 
         private float spacing;
@@ -26,8 +39,7 @@ namespace ContentControllers
         [SerializeField] 
         private VerticalLayoutGroup layoutGroup;
 
-        [SerializeField] 
-        private BrutalManualTimedEvents timedMessageEvents;
+        [SerializeField] private MessageSequencer sequencer;
 
         private bool dirty;
 
@@ -36,21 +48,32 @@ namespace ContentControllers
 
         private bool isLerping;
 
+        private Queue<GameObject> visibleMessageQueue;
+
+        private int maxVisibleMessages = 10;
+
+        private GameObject activePreviewMessage;
+
         private void Awake()
         {
-            timedMessageEvents.PushNewMessage += OnPushNewMessage;
+            visibleMessageQueue = new Queue<GameObject>(10);
+
+            if (sequencer != null)
+            {
+                sequencer.NewMessageBorn += OnNewMessageBorn;
+            }
         }
 
-        private void OnPushNewMessage(TextMessage textMessage)
+        private void OnNewMessageBorn(Message message)
         {
-            AddMessage(textMessage);
+            AddMessage(message);
         }
 
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                AddItem();
+                AddMessage(testMessage);
             }
 
             if (isLerping)
@@ -69,45 +92,67 @@ namespace ContentControllers
                     LayoutRebuilder.ForceRebuildLayoutImmediate(contentRect);
                 }
             }
+        }
 
-
-
-            if (dirty)
+        private void LateUpdate()
+        {
+            if (contentRect.anchoredPosition.y != 0)
             {
-                var position = contentRect.position;
+                var position = contentRect.anchoredPosition;
                 position.y = 0;
-                contentRect.position = position;
+                contentRect.anchoredPosition = position;
                 dirty = false;
             }
         }
 
-        public void AddMessage(TextMessage textMessage)
+        public void AddMessage(Message testMessage)
         {
-            var newMessage = Instantiate(itemPrefab, contentRect);
-            var messageManager = newMessage.GetComponent<SetMessage>();
-            messageManager.SetContent(textMessage);
+            var newMessage = GetNewMessage(testMessage, contentRect.transform);
+            if (visibleMessageQueue.Count == maxVisibleMessages)
+            {
+                Destroy(visibleMessageQueue.Dequeue());
+            }
+            visibleMessageQueue.Enqueue(newMessage);
+            
             var currentRect = contentRect.sizeDelta;
             var newMessageSize = newMessage.GetComponent<RectTransform>().sizeDelta.y + spacing;
             currentRect.y += newMessageSize * 2;
             contentRect.sizeDelta = currentRect;
-            LayoutRebuilder.ForceRebuildLayoutImmediate(contentRect);
             dirty = true;
             tick = 0.0f;
             isLerping = true;
         }
 
-        private void AddItem()
+        private GameObject GetNewMessage(Message newMessage, Transform parent)
         {
-            var newMessage = Instantiate(itemPrefab, contentRect);
-            var currentRect = contentRect.sizeDelta;
-            var newMessageSize = newMessage.GetComponent<RectTransform>().sizeDelta.y + spacing;
-            currentRect.y += newMessageSize;
-            contentRect.sizeDelta = currentRect;
-            LayoutRebuilder.ForceRebuildLayoutImmediate(contentRect);
-            var position = contentRect.position;
-            dirty = true;
-            tick = 0.0f;
-            isLerping = true;
+            switch (newMessage.messageType)
+            {
+                case MessageType.Text:
+                    if (newMessage is Message textMessage)
+                    {
+                        activePreviewMessage = Instantiate(textMessagePrefab, parent);
+                        activePreviewMessage.GetComponent<SetMessage>().SetContent(textMessage);
+                    }
+                    break;
+                case MessageType.Image:
+                    if (newMessage is ImageMessage imageMessage)
+                    {
+                        activePreviewMessage = Instantiate(imageMessagePrefab, parent);
+                        activePreviewMessage.GetComponent<SetImageMessage>().SetContent(imageMessage);
+                    }
+                    break;
+                case MessageType.Gif:
+                    if (newMessage is GifMessage gifMessage)
+                    {
+                        activePreviewMessage = Instantiate(gifMessagePrefab, parent);
+                        activePreviewMessage.GetComponent<SetGifMessage>().SetContent(gifMessage);
+                    }
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            return activePreviewMessage;
         }
     }
 }

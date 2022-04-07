@@ -7,16 +7,25 @@ namespace MessagesUI
 {
     public class MessagePreview : MonoBehaviour, IMessageDisplayer
     {
-        [SerializeField] private GameObject textMessagePrefab;
-        [SerializeField] private GameObject imageMessagePrefab;
-        [SerializeField] private GameObject gifMessagePrefab;
+        [Header("Message Prefabs")]
+        [SerializeField] 
+        private GameObject textMessagePrefab;
+       
+        [SerializeField] 
+        private GameObject imageMessagePrefab;
+        
+        [SerializeField] 
+        private GameObject gifMessagePrefab;
+        
+        [Header("UI")] 
+        [SerializeField] 
+        private Button refreshButton;
 
-        [SerializeField] private RectTransform previewAncorPoint;
+        [SerializeField] 
+        private RectTransform previewAncorPoint;
 
-        [SerializeField] private Message message;
-
-        [Header("UI")] [SerializeField] private Button refreshButton;
-
+        [SerializeField] 
+        private Message message;
 
         private GameObject activePreviewMessage;
 

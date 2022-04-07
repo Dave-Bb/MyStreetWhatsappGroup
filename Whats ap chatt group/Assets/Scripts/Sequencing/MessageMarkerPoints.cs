@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Messages;
+using UnityEngine;
 
 namespace Sequencing
 {
@@ -40,10 +41,19 @@ namespace Sequencing
             {
                 var newMarker = Instantiate(markerPointPrefab, transform).GetComponent<MarkerPoint>();
                 var anchorPoint = TimeToPoint(message.sequence.StageTime);
-                newMarker.SetMarker(anchorPoint, message.messageType);
+                newMarker.SetMarker(anchorPoint, message);
+                
+                newMarker.PointerClicked += OnMarkerPointerClicked;
+
             }
         }
-        
+
+        private void OnMarkerPointerClicked(Message obj)
+        {
+            //TODO make the marker points be able to edit the message from that point 
+            Debug.Log("SHOW MESSAGE TO EDIT "+obj.MessageBody);
+        }
+
         private float TimeToPoint(float currentTime)
         {
             //current % of the way through the track 

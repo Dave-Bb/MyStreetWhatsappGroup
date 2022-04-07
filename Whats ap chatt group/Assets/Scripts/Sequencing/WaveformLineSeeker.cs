@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Sequencing
@@ -12,6 +13,8 @@ namespace Sequencing
     {
         [SerializeField] 
         private bool moveToMouse;
+
+        [SerializeField] private Toggle mouseSeekingToggle; 
         
         private SimpleTrackController simpleTrackController;
         private PointerEnteringExiting pointerEvents;
@@ -22,6 +25,7 @@ namespace Sequencing
         private float trackWaveformSize;
         private float magicWhy = 160; //I dunno, it just needs this for some reason. 
         private bool allowMouseSeeking;
+        private bool allowMouseSeekingAndShow;
 
         private void Awake()
         {
@@ -30,6 +34,12 @@ namespace Sequencing
             
             rectTransform = GetComponent<RectTransform>();
             seekerImage = GetComponent<Image>();
+
+            if (mouseSeekingToggle != null)
+            {
+                mouseSeekingToggle.onValueChanged.AddListener(OnMouseSeekingToggled);
+                OnMouseSeekingToggled(mouseSeekingToggle.isOn);
+            }
 
             if (pointerEvents != null)
             {
@@ -42,6 +52,11 @@ namespace Sequencing
             }
         }
 
+        private void OnMouseSeekingToggled(bool allow)
+        {
+            allowMouseSeekingAndShow = allow;
+        }
+
         private void OnMouseEnterExit(bool mouseDidEnter)
         {
             if (!moveToMouse)
@@ -52,11 +67,7 @@ namespace Sequencing
             allowMouseSeeking = mouseDidEnter;
             if (moveToMouse)
             {
-                seekerImage.enabled = allowMouseSeeking;
-            }
-            else
-            {
-                
+                seekerImage.enabled = allowMouseSeeking && allowMouseSeekingAndShow;
             }
         }
 
@@ -95,12 +106,7 @@ namespace Sequencing
             var seekPosition = PointOnWaveformToTime(rectTransform.anchoredPosition.x);
             
             //Trim the edges if we clicked off
-            if (seekPosition < 0)
-            {
-                seekPosition = 0;
-            }
-
-            if (seekPosition > audioSource.clip.length)
+            if (seekPosition > audioSource.clip.length || seekPosition < 0)
             {
                 seekPosition = 0;
             }
